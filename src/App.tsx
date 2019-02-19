@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import logo from './logo.svg';
+import { hot } from 'react-hot-loader'
+import React, { Component } from 'react';
 
 class App extends Component {
   render() {
@@ -25,4 +26,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default hot(module)(App)
