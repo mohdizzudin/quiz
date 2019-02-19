@@ -1,29 +1,28 @@
-import './App.css';
-import logo from './logo.svg';
+import './App.scss'
+import React from 'react'
 import { hot } from 'react-hot-loader'
-import React, { Component } from 'react';
+import { QuestionAnswer } from './components/question-answer/question-answer'
+import { QuestionCard } from './components/question-card/question-card'
+import { useQuestionNumber } from './useHook/question-number.state'
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+function App() {
+  const { questionNumber } = useQuestionNumber()
+
+  return (
+    <div className='container'>
+      <div className='app'>
+        <div className="row flex-grow-1 justify-content-center">
+          <div className="col-8">
+            <QuestionCard>
+              <h5>{questionNumber}. As-Sajda</h5>
+              <small className='mb-0 d-flex align-self-end'>Meccan Surah</small>
+            </QuestionCard>
+            <QuestionAnswer/>
+          </div>
+        </div>
       </div>
-    );
-  }
+    </div>
+  )
 }
 
-export default hot(module)(App)
+export default (process.env.NODE_ENV === 'development' ? hot(module)(App) : App)
