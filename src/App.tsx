@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import logo from './logo.svg';
 import { hot } from 'react-hot-loader'
 import React, { Component } from 'react';
@@ -26,4 +26,4 @@ class App extends Component {
   }
 }
 
-export default hot(module)(App)
+export default process.env.NODE_ENV === "development" ? hot(module)(App) : App
