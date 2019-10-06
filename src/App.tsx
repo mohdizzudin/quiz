@@ -10,6 +10,9 @@ function App() {
 
   return (
     <div className='container'>
+      <div className='title'>
+        <h1>What is this surah`s chapter?</h1>
+      </div>
       <div className='app'>
         <div className="row flex-grow-1 justify-content-center">
           <div className="col-8">
